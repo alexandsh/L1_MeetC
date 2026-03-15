@@ -1,4 +1,3 @@
-#include "stack.c"
 #include "stack.h"
 #include <assert.h>
 
@@ -36,7 +35,7 @@ void test_stack_full() {
   assert(isEmpty(&s) == 0);
 }
 
-int main(void) {
+int main() {
   test_stack_init_and_empty();
   test_stack_push_pop();
   test_stack_full();
