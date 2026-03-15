@@ -62,7 +62,7 @@ Node *del_node(Node *node, int data) {
 
   while (link && (link->data != data)) {
     prev = link;
-    node = node->next;
+    link = link->next;
   }
 
   if (!link)
