@@ -1,4 +1,3 @@
-#include "integral.c"
 #include "integral.h"
 #include <assert.h>
 #include <math.h>
