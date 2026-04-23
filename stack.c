@@ -6,18 +6,20 @@ int isEmpty(Stack *s) { return s->top == -1; }
 
 int isFull(Stack *s) { return s->top == MAX_SIZE - 1; }
 
-void push(Stack *s, int value) {
-  if (!isFull(s)) {
-    s->top++;
-    s->data[s->top] = value;
+int push(Stack *s, int value) {
+  if (isFull(s)) {
+    return 0;
   }
+  s->top++;
+  s->data[s->top] = value;
+  return 1;
 }
 
-int pop(Stack *s) {
-  if (!isEmpty(s)) {
-    int value = s->data[s->top];
-    s->top--;
-    return value;
+int pop(Stack *s, int *value) {
+  if (isEmpty(s)) {
+    return 0;
   }
-  return 0;
+  *value = s->data[s->top];
+  s->top--;
+  return 1;
 }
