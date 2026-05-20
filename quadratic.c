@@ -1,27 +1,26 @@
 #include "quadratic.h"
 #include <math.h>
 
+static const double EPS = 1e-7;
+
+static inline int sgn(double a) { return (a > 0) - (a < 0); }
+
 int solve_quadratic(double a, double b, double c, double *x1, double *x2) {
-  if (a == 0)
+  if (fabs(a) < EPS)
     return -1;
 
   double D = b * b - 4 * a * c;
-  double eps = 1e-7;
 
-  if (D < -eps)
+  if (D < -EPS)
     return 0;
 
-  if (fabs(D) <= eps) {
+  if (fabs(D) <= EPS) {
     *x1 = -b / (2 * a);
     return 1;
   }
 
   double sqrtD = sqrt(D);
-  double q;
-  if (b >= 0)
-    q = -(b + sqrtD) / 2;
-  else
-    q = -(b - sqrtD) / 2;
+  double q = -(b + sgn(b) * sqrtD) / 2;
 
   *x1 = q / a;
   *x2 = c / q;
