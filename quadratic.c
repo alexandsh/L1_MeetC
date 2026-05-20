@@ -3,7 +3,7 @@
 
 static const double EPS = 1e-7;
 
-static inline int sgn(double a) { return (a > 0) - (a < 0); }
+static inline int sgn(double a) { return a >= 0 ? 1 : -1; }
 
 int solve_quadratic(double a, double b, double c, double *x1, double *x2) {
   if (fabs(a) < EPS)
