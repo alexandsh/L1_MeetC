@@ -17,3 +17,4 @@ test:
 		echo "$$test"; \
 		./$$test; \
 	done
+	
